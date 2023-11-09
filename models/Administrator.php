@@ -22,7 +22,7 @@ class Administrator extends db {
         return $this->view_users();
     }
 
-    private function register_users($data){
+    private function register_Pedido($data){
         try {
             $SQL = 'INSERT INTO tbl_pedidos (idPedido, idCliente, fecha, total, metodoDePago, direccion, numeroDeSeguimiento, fechaDeEntrega, idEmpleado) VALUES (?,?,?,?,?,?,?,?,?)';
             $result = $this->connect()->prepare($SQL);
@@ -38,15 +38,15 @@ class Administrator extends db {
                 $data['idEmpleado']
             ));
         } catch (Exception $e) {
-            die('Error Administrator(register_users) '.$e->getMessage());
+            die('Error Administrator(register_Pedido) '.$e->getMessage());
         }
     }
 
-    function set_register_user($data){
-        $this->register_users($data);
+    function set_register_Pedido($data){
+        $this->register_Pedido($data);
     }
 
-    private function update_user($data){
+    private function update_Pedido($data){
         try {
             $SQL = 'UPDATE tbl_pedidos SET idCliente = ?, fecha = ?, total = ?, metodoDePago = ?, direccion = ?, numeroDeSeguimiento = ?, fechaDeEntrega = ?, idEmpleado = ? WHERE idPedido = ?';
             $result = $this->connect()->prepare($SQL);
@@ -62,26 +62,26 @@ class Administrator extends db {
                 $data['idPedido']
             ));
         } catch (Exception $e) {
-            die('Error Administrator(update_user) '.$e->getMessage());
+            die('Error Administrator(update_Pedido) '.$e->getMessage());
         }
     }
 
-    function set_update_user($data){
-        $this->update_user($data);
+    function set_update_Pedido($data){
+        $this->update_Pedido($data);
     }
 
-    private function delete_user($idPedido){
+    private function delete_Pedido($idPedido){
         try {
             $SQL = 'DELETE FROM tbl_pedidos WHERE idPedido = ?';
             $result = $this->connect()->prepare($SQL);
             $result->execute(array($idPedido));			
         } catch (Exception $e) {
-            die('Error Administrator(delete_user) '.$e->getMessage());
+            die('Error Administrator(delete_Pedido) '.$e->getMessage());
         }
     }
 
-    function set_delete_user($idPedido){
-        $this->delete_user($idPedido);
+    function set_delete_Pedido($idPedido){
+        $this->delete_Pedido($idPedido);
     }	
 }
 ?>

@@ -98,7 +98,7 @@ class administratorController extends Administrator
 	function deletePedido()
 	{
 		if (isset($_REQUEST['idPedido'])) {
-			parent::set_delete_user($_REQUEST['idPedido']);
+			parent::set_delete_Pedido($_REQUEST['idPedido']);
 		}
 	}
 
@@ -116,7 +116,7 @@ class administratorController extends Administrator
 			'idEmpleado' => $_REQUEST['idEmpleado']
 		);
 
-		parent::set_register_user($data);
+		parent::set_register_Pedido($data);
 	}
 
 	function updatePedido()
@@ -133,6 +133,6 @@ class administratorController extends Administrator
 			'idEmpleado' => $_REQUEST['idEmpleado']
 		);
 
-		parent::set_update_user($data);
+		parent::set_update_Pedido($data);
 	}
 }
